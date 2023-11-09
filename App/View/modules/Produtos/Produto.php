@@ -7,9 +7,9 @@
     <title>Cadastro de Produtos</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            
             background-color: #f9f9f9;
-            padding: 20px;
+            padding: 0px;
         }
 
         fieldset {

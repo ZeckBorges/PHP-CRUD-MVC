@@ -10,7 +10,7 @@ class ProdutoDAO
         $dsn = "mysql:host=localhost;dbname=estoque";
 
         try {
-            $this->conexao = new PDO($dsn, 'user', '****');
+            $this->conexao = new PDO($dsn, 'root', '****');
             $this->conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // Conexão estabelecida com sucesso
         } catch (PDOException $e) {
@@ -58,7 +58,7 @@ class ProdutoDAO
 
     public function select()
     {
-        $sql = "SELECT * FROM produto ";
+        $sql = "SELECT * FROM produto";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();

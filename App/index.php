@@ -41,6 +41,7 @@
     
     <nav>
         <ul>
+            <li><a href="/home">Home</a></li>
             <li><a href="/produtos">Lista de Produtos</a></li>
             <li><a href="/produto/form">Adicionar Produto</a></li>
         </ul>
@@ -59,8 +60,9 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
     switch ($url) {
 
-        case '/':
-            echo "página inicial";
+        case '/home':
+            include 'View/modules/Produtos/Home.php';
+            //echo "página inicial";
         break;
 
         case '/produtos':
