@@ -6,50 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista Pessoas</title>
 
-    <style>
-         body {
-            
-            background-color: #f9f9f9;
-            padding: 0px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #e1e1e1;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f5f5f5;
-        }
-
-        tr:hover {
-            background-color: #dcdcdc;
-        }
-
-        a {
-            color: #333;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        td[colspan="5"] {
-            text-align: center;
-        }
-
-    </style>
+    <link rel="stylesheet", href="../../../Style/listaprodutos.css">
 </head>
 <body>
 
@@ -77,7 +34,7 @@
                 <a href="/produto/form?id=<?= $item->id_produto ?>">editar</a>
             </td>
             <td>
-                <a href="/funcionario/delete?id=<?= $item->id_produto ?>">X</a>
+                <a href="/produto/delete?id=<?= $item->id_produto ?>">X</a>
             </td>
         </tr>
         <?php endforeach ?>

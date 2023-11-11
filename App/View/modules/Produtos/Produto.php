@@ -5,58 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Produtos</title>
-    <style>
-        body {
-            
-            background-color: #f9f9f9;
-            padding: 0px;
-        }
-
-        fieldset {
-            border: 1px solid #ccc;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        legend {
-            font-weight: bold;
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        label {
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        input[type="date"],
-        input[type="password"] {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-top: 5px;
-            box-sizing: border-box;
-        }
-
-        button[type="submit"] {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #555;
-        }
-
-        label, input { display: block; }
-    </style>
+    <link rel="stylesheet", href="../../../Style/produto.css">
 </head>
 <body>
     <fieldset>
@@ -77,6 +26,9 @@
 
             <label for="plataforma">Plataforma:</label>
             <input type="text" value="<?= $model->plataforma?>" name="plataforma" id="plataforma" required><br>
+
+            <label for="categoria">Categoria:</label>
+            <input type="text" value="<?= $model->categoria?>" name="categoria" id="categoria" required><br>
             
             <button type="submit">Salvar</button>
         </form>

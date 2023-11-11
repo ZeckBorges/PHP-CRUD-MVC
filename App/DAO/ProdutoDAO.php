@@ -22,7 +22,7 @@ class ProdutoDAO
     public function insert(ProdutoModel $model)
     {
         // Trecho de código SQL com marcadores ? para substituição posterior, no prepare
-        $sql = "INSERT INTO produto (nome, descricao, preco, plataforma) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO produto (nome, descricao, preco, plataforma, categoria) VALUES (?, ?, ?, ?, ?)";
 
         try {
             
@@ -32,6 +32,7 @@ class ProdutoDAO
             $stmt->bindValue(2, $model->descricao);
             $stmt->bindValue(3, $model->preco);
             $stmt->bindValue(4, $model->plataforma);
+            $stmt->bindValue(5, $model->categoria);
 
 
             // Executamos a consulta preparada.
@@ -44,14 +45,15 @@ class ProdutoDAO
 
     public function update(ProdutoModel $model)
     {
-        $sql = "UPDATE produto SET nome=?, descricao=?, preco=?, plataforma=? WHERE id_produto=? ";
+        $sql = "UPDATE produto SET nome=?, descricao=?, preco=?, plataforma=?, categoria=? WHERE id_produto=? ";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $model->nome);
         $stmt->bindValue(2, $model->descricao);
         $stmt->bindValue(3, $model->preco);
         $stmt->bindValue(4, $model->plataforma);
-        $stmt->bindValue(5, $model->id_produto);
+        $stmt->bindValue(5, $model->categoria);
+        $stmt->bindValue(6, $model->id_produto);
 
         $stmt->execute();
     }

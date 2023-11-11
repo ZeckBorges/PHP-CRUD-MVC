@@ -61,8 +61,7 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     switch ($url) {
 
         case '/home':
-            include 'View/modules/Produtos/Home.php';
-            //echo "página inicial";
+            ProdutoController::indexHome();
         break;
 
         case '/produtos':

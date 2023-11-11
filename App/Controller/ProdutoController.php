@@ -3,6 +3,16 @@
 
 class ProdutoController 
 {
+
+    public static function indexHome()
+    {
+        include 'Model/ProdutoModel.php'; // inclusão do arquivo model.
+        
+        $model = new ProdutoModel(); // Instância da Model
+        $model->getAllRows(); // Obtendo todos os registros, abastecendo a propriedade $rows da model.
+
+        include 'View/modules/Produtos/Home.php'; // Include da View, propriedade $rows da Model pode ser acessada na View
+    }
     
     public static function index()
     {
@@ -44,6 +54,7 @@ class ProdutoController
        $model->descricao = $_POST['descricao'];
        $model->preco = $_POST['preco'];
        $model->plataforma = $_POST['plataforma'];
+       $model->categoria = $_POST['categoria'];
 
        $model->save(); // chamando o método save da model.
 
@@ -61,6 +72,6 @@ class ProdutoController
 
         $model->delete( (int) $_GET['id'] ); // Enviando a variável $_GET como inteiro para o método delete
 
-        header("Location: /Produto"); // redirecionando o usuário para outra rota.
+        header("Location: /produtos"); // redirecionando o usuário para outra rota.
     }
 }
