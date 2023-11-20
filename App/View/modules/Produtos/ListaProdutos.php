@@ -13,7 +13,7 @@
     <table>
         <tr>
             
-            <th>Id</th>
+            
             <th>Produto</th>
             <th>Descrição</th>
             <th>Preço</th>
@@ -25,13 +25,13 @@
         <?php foreach($model->rows as $item): ?>
         <tr>
 
-            <td><?= $item->id_produto ?></td>
+            
             <td><?= $item->nome ?></td>
             <td><?= $item->descricao ?></td>
             <td>R$<?= number_format($item->preco, 2, ",",".") ?></td>
             <td><?= $item->plataforma ?></td>
             <td>
-                <a href="/produto/form?id=<?= $item->id_produto ?>">editar</a>
+                <a href="/produto/edit?id=<?= $item->id_produto ?>">editar</a>
             </td>
             <td>
                 <a href="/produto/delete?id=<?= $item->id_produto ?>">X</a>

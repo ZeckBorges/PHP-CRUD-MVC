@@ -4,7 +4,7 @@
 class ProdutoController 
 {
 
-    public static function indexHome()
+    public static function index()
     {
         include 'Model/ProdutoModel.php'; // inclusão do arquivo model.
         
@@ -14,7 +14,7 @@ class ProdutoController
         include 'View/modules/Produtos/Home.php'; // Include da View, propriedade $rows da Model pode ser acessada na View
     }
     
-    public static function index()
+    public static function list()
     {
         include 'Model/ProdutoModel.php'; // inclusão do arquivo model.
         
@@ -26,7 +26,7 @@ class ProdutoController
 
 
 
-    public static function form()
+    public static function cad()
     {
         include 'Model/ProdutoModel.php'; // inclusão do arquivo model.
         $model = new ProdutoModel();
@@ -35,6 +35,17 @@ class ProdutoController
             $model = $model->getById( (int) $_GET['id']);
 
         include 'View/modules/Produtos/Produto.php'; // Include da View. Note que a variável $model está disponível na View.
+    }
+
+    public static function edit()
+    {
+        include 'Model/ProdutoModel.php'; // inclusão do arquivo model.
+        $model = new ProdutoModel();
+
+        if(isset($_GET['id'])) // Verificando se existe uma variável $_GET
+            $model = $model->getById( (int) $_GET['id']);
+
+        include 'View/modules/Produtos/Editar.php'; // Include da View. Note que a variável $model está disponível na View.
     }
 
 

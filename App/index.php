@@ -43,7 +43,7 @@
         <ul>
             <li><a href="/home">Home</a></li>
             <li><a href="/produtos">Lista de Produtos</a></li>
-            <li><a href="/produto/form">Adicionar Produto</a></li>
+            <li><a href="/produto/cadastro">Adicionar Produto</a></li>
         </ul>
     </nav>
 
@@ -61,17 +61,21 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     switch ($url) {
 
         case '/home':
-            ProdutoController::indexHome();
+            ProdutoController::index();
         break;
 
         case '/produtos':
-            ProdutoController::index();
+            ProdutoController::list();
             break;
 
-        case '/produto/form':
-            ProdutoController::form();
+        case '/produto/cadastro':
+            ProdutoController::cad();
             break;
         
+        case '/produto/edit':
+            ProdutoController::edit();
+            break;
+            
         case '/produto/form/save':
             ProdutoController::save();
             break;

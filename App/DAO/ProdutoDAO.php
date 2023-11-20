@@ -10,7 +10,7 @@ class ProdutoDAO
         $dsn = "mysql:host=localhost;dbname=estoque";
 
         try {
-            $this->conexao = new PDO($dsn, 'root', '****');
+            $this->conexao = new PDO($dsn, 'root', '2468');
             $this->conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // Conexão estabelecida com sucesso
         } catch (PDOException $e) {
@@ -22,7 +22,7 @@ class ProdutoDAO
     public function insert(ProdutoModel $model)
     {
         // Trecho de código SQL com marcadores ? para substituição posterior, no prepare
-        $sql = "INSERT INTO produto (nome, descricao, preco, plataforma, categoria) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO produto (nome, descricao, preco, plataforma, categoria, quantidade, tipo) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try {
             
@@ -33,6 +33,8 @@ class ProdutoDAO
             $stmt->bindValue(3, $model->preco);
             $stmt->bindValue(4, $model->plataforma);
             $stmt->bindValue(5, $model->categoria);
+            $stmt->bindValue(6, $model->quantidade);
+            $stmt->bindValue(7, $model->tipo);
 
 
             // Executamos a consulta preparada.
