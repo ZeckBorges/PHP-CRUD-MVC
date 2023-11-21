@@ -35,6 +35,32 @@
         li a:hover {
             background-color: #555;
         }
+
+        form {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+            margin-right: 5px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #555;
+        }
     </style>
 </head>
 <body>
@@ -46,6 +72,10 @@
             <li><a href="/produto/cadastro">Adicionar Produto</a></li>
         </ul>
     </nav>
+    <form action="/produto/pesquisa" method="GET">
+        <input type="text" name="termo_pesquisa" placeholder="Digite sua busca">
+        <button type="submit">Pesquisar</button>
+    </form>
 
 </body>
 </html>

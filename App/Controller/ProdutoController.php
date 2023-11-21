@@ -24,8 +24,6 @@ class ProdutoController
         include 'View/modules/Produtos/ListaProdutos.php'; // Include da View, propriedade $rows da Model pode ser acessada na View
     }
 
-
-
     public static function cad()
     {
         include 'Model/ProdutoModel.php'; // inclusão do arquivo model.
@@ -48,8 +46,6 @@ class ProdutoController
         include 'View/modules/Produtos/Editar.php'; // Include da View. Note que a variável $model está disponível na View.
     }
 
-
-    
     public static function save()
     {
        include 'Model/ProdutoModel.php'; // inclusão do arquivo model.
@@ -72,7 +68,6 @@ class ProdutoController
        header("Location: /produtos"); // redirecionando o usuário para outra rota.
     }
 
-
     public static function delete()
     {
         include 'Model/ProdutoModel.php'; // inclusão do arquivo model.
@@ -85,4 +80,5 @@ class ProdutoController
 
         header("Location: /produtos"); // redirecionando o usuário para outra rota.
     }
+
 }

@@ -62,7 +62,7 @@ class ProdutoDAO
 
     public function select()
     {
-        $sql = "SELECT * FROM produto";
+        $sql = "SELECT * FROM produto_view";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
@@ -74,7 +74,7 @@ class ProdutoDAO
     {
         include_once 'Model/ProdutoModel.php';
 
-        $sql = "SELECT * FROM produto WHERE id_produto = ?";
+        $sql = "SELECT * FROM produto_view WHERE id_produto = ?";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $id);
@@ -91,4 +91,5 @@ class ProdutoDAO
         $stmt->bindValue(1, $id);
         $stmt->execute();
     }
+
 }

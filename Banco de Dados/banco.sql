@@ -14,22 +14,27 @@ CREATE TABLE IF NOT EXISTS `produto` (
   PRIMARY KEY (`id_produto`)
 );
 
-INSERT INTO produto (id_produto, nome, descricao, preco, plataforma, categoria, quantidade) 
+INSERT INTO produto (nome, descricao, preco, plataforma, categoria, quantidade, tipo) 
 VALUES 
-('Nintendo Switch', 'Console híbrido da Nintendo', 299.99, 'Nintendo', 'Console', 3),
-('PlayStation 4', 'Console anterior da Sony', 299.99, 'PlayStation', 'Console', 4),
-('Xbox One', 'Console da geração anterior da Microsoft', 249.99, 'Xbox', 'Console', 7),
-('PlayStation 5', 'Console de última geração', 499.99, 'PlayStation', 'Console', 5),
-('Xbox Series X', 'Potente console da Microsoft', 549.99, 'Xbox', 'Console', 0),
-('The Witcher 3', 'RPG épico de mundo aberto', 29.99, 'PC, PlayStation, Xbox', 'RPG', 2),
-('Mario Kart 8 Deluxe', 'Jogo de corrida da Nintendo', 59.99, 'Nintendo Switch', 'Corrida', 6),
-('FIFA 22', 'Simulador de futebol', 49.99, 'PC, PlayStation, Xbox', 'Esportes', 10),
-('The Legend of Zelda: Breath of the Wild', 'Aventura épica da Nintendo', 49.99, 'Nintendo Switch', 'Aventura', 8),
-('Red Dead Redemption 2', 'Ação no Velho Oeste', 39.99, 'PlayStation, Xbox', 'Ação', 5),
-('Minecraft', 'Mundo aberto e construção', 19.99, 'PC, PlayStation, Xbox', 'Sandbox', 2),
-('Teclado', 'Teclado mecânico RGB', 99.99, 'PC', 'Acessório', 5),
-('Mouse', 'Mouse sem fio ergonômico', 49.99, 'PC', 'Acessório', 6),
-('Fone de Ouvido', 'Fone com cancelamento de ruído', 129.99, 'Múltiplas', 'Acessório', 4),
-('Monitor', 'Monitor de 27 polegadas', 199.99, 'PC', 'Acessório'),
-('Webcam', 'Câmera HD para videoconferências', 79.99, 'PC', 'Acessório', 3),
-('HD Externo', '1TB de armazenamento portátil', 79.99, 'Múltiplas', 'Armazenamento', 3);
+('Nintendo Switch', 'Console híbrido da Nintendo', 299.99, 'Nintendo', 'Console', 3, 'console'),
+('PlayStation 4', 'Console anterior da Sony', 299.99, 'PlayStation', 'Console', 4, 'console'),
+('Xbox One', 'Console da geração anterior da Microsoft', 249.99, 'Xbox', 'Console', 7, 'console'),
+('PlayStation 5', 'Console de última geração', 499.99, 'PlayStation', 'Console', 5, 'console'),
+('Xbox Series X', 'Potente console da Microsoft', 549.99, 'Xbox', 'Console', 0, 'console'),
+('The Witcher 3', 'RPG épico de mundo aberto', 29.99, 'PC, PlayStation, Xbox', 'RPG', 2, 'jogo'),
+('Mario Kart 8 Deluxe', 'Jogo de corrida da Nintendo', 59.99, 'Nintendo Switch', 'Corrida', 6, 'jogo'),
+('FIFA 22', 'Simulador de futebol', 49.99, 'PC, PlayStation, Xbox', 'Esportes', 10, 'jogo'),
+('The Legend of Zelda: Breath of the Wild', 'Aventura épica da Nintendo', 49.99, 'Nintendo Switch', 'Aventura', 8, 'jogo'),
+('Red Dead Redemption 2', 'Ação no Velho Oeste', 39.99, 'PlayStation, Xbox', 'Ação', 5, 'jogo'),
+('Minecraft', 'Mundo aberto e construção', 19.99, 'PC, PlayStation, Xbox', 'Sandbox', 2, 'jogo'),
+('Teclado', 'Teclado mecânico RGB', 99.99, 'PC', 'Acessório', 5, 'periferico'),
+('Mouse', 'Mouse sem fio ergonômico', 49.99, 'PC', 'Acessório', 6, 'periferico'),
+('Fone de Ouvido', 'Fone com cancelamento de ruído', 129.99, 'Múltiplas', 'Acessório', 4, 'periferico'),
+('Monitor', 'Monitor de 27 polegadas', 199.99, 'PC', 'Acessório', 1, 'periferico'),
+('Webcam', 'Câmera HD para videoconferências', 79.99, 'PC', 'Acessório', 3, 'periferico'),
+('HD Externo', '1TB de armazenamento portátil', 79.99, 'Múltiplas', 'Armazenamento', 3, 'periferico');
+
+
+
+CREATE VIEW produto_view AS SELECT * FROM `produto`;
+
