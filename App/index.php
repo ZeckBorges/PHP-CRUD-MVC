@@ -72,10 +72,6 @@
             <li><a href="/produto/cadastro">Adicionar Produto</a></li>
         </ul>
     </nav>
-    <form action="/produto/pesquisa" method="GET">
-        <input type="text" name="termo_pesquisa" placeholder="Digite sua busca">
-        <button type="submit">Pesquisar</button>
-    </form>
 
 </body>
 </html>
