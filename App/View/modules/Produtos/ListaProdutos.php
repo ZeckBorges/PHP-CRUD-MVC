@@ -21,8 +21,9 @@
             <th>Descrição</th>
             <th>Preço</th>
             <th>Plataforma</th>
+            <th>Qdade</th>
             <th>Editar</th>
-            <th>Deletar</th>
+            
         </tr>
 
         <?php foreach($model->rows as $item): ?>
@@ -31,11 +32,9 @@
             <td><?= $item->descricao ?></td>
             <td>R$<?= number_format($item->preco, 2, ",",".") ?></td>
             <td><?= $item->plataforma ?></td>
+            <td> <?= $item->quantidade ?></a> </td>
             <td>
                 <a href="/produto/edit?id=<?= $item->id_produto ?>">editar</a>
-            </td>
-            <td>
-                <a href="/produto/delete?id=<?= $item->id_produto ?>">X</a>
             </td>
         </tr>
         <?php endforeach ?>

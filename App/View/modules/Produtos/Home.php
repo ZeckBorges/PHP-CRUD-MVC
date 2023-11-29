@@ -3,21 +3,6 @@
     <head>
     <link rel="stylesheet" href="../../../Style/home.css">
 
-    <style>
-        .produto {
-            width: 300px;
-            height: 300px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        .produtos {
-            display: flex;
-            flex-wrap: wrap
-        }
-    </style>
-
     </head>
     <body>
         <h1>Site</h1>

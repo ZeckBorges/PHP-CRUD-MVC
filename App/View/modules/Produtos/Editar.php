@@ -31,7 +31,7 @@
             <input type="text" value="<?= $model->categoria?>" name="categoria" id="categoria" required><br>
 
             <label for="quantidade">Quantidade:</label>
-            <input type="text" value="<?= $model->quantidade?>" name="quantidade" id="quantidade" required><br>
+            <input type="number" value="<?= $model->quantidade?>" name="quantidade" id="quantidade" required><br>
 
             <label for="tipo">Genêro:</label>
             <input type="text" value="<?= $model->tipo?>" name="tipo" id="tipo" required><br>

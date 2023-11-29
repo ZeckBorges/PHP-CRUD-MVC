@@ -62,6 +62,8 @@ class ProdutoController
        $model->preco = $_POST['preco'];
        $model->plataforma = $_POST['plataforma'];
        $model->categoria = $_POST['categoria'];
+       $model->quantidade = $_POST['quantidade'];
+       $model->tipo = $_POST['tipo'];
 
        $model->save(); // chamando o método save da model.
 

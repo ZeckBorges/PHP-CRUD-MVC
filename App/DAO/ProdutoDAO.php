@@ -47,7 +47,7 @@ class ProdutoDAO
 
     public function update(ProdutoModel $model)
     {
-        $sql = "UPDATE produto SET nome=?, descricao=?, preco=?, plataforma=?, categoria=? WHERE id_produto=? ";
+        $sql = "UPDATE produto SET nome=?, descricao=?, preco=?, plataforma=?, categoria=?, quantidade=?, tipo=? WHERE id_produto=? ";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $model->nome);
@@ -55,7 +55,9 @@ class ProdutoDAO
         $stmt->bindValue(3, $model->preco);
         $stmt->bindValue(4, $model->plataforma);
         $stmt->bindValue(5, $model->categoria);
-        $stmt->bindValue(6, $model->id_produto);
+        $stmt->bindValue(6, $model->quantidade);
+        $stmt->bindValue(7, $model->tipo);
+        $stmt->bindValue(8, $model->id_produto);
 
         $stmt->execute();
     }
@@ -85,7 +87,7 @@ class ProdutoDAO
 
     public function delete(int $id)
     {
-        $sql = "DELETE FROM produto WHERE id_produto = ? ";
+        $sql = "UPDATE FROM produto WHERE quantidade -1";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $id);
