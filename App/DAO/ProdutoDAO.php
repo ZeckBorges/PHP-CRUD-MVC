@@ -87,7 +87,7 @@ class ProdutoDAO
 
     public function delete(int $id)
     {
-        $sql = "UPDATE FROM produto WHERE quantidade -1";
+        $sql = "UPDATE FROM produto SET quantidade = quantidade - 1 WHERE id_produto = `$id` AND quantidade > 0";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $id);
