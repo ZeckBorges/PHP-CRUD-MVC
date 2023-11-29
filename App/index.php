@@ -38,7 +38,7 @@
 
         form {
             margin-top: 20px;
-            text-align: center;
+            /*text-align: center;*/
         }
 
         input[type="text"] {

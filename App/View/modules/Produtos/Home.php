@@ -3,6 +3,21 @@
     <head>
     <link rel="stylesheet" href="../../../Style/home.css">
 
+    <style>
+        .produto {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .produtos {
+            display: flex;
+            flex-wrap: wrap
+        }
+    </style>
+
     </head>
     <body>
         <h1>Site</h1>
@@ -12,22 +27,23 @@
             <button type="submit">Pesquisar</button>
         </form>
 
-        <table>
-            <tr>
-                <th>Produto</th>
-                <th>Descrição</th>
-                <th>Preço</th>
-                <th>Plataforma</th>
-            </tr>
-
+        <div class="produtos">
             <?php foreach($model->rows as $item): ?>
-                <tr>
-                    <td><?= $item->nome ?></td>
-                    <td><?= $item->descricao ?></td>
-                    <td>R$<?= number_format($item->preco, 2, ",",".") ?></td>
-                    <td><?= $item->plataforma ?></td>
-                </tr>
+                <div class="produto">
+                    <p><strong>Produto:</strong> <?= $item->nome ?></p>
+                    <p><strong>Descrição:</strong> <?= $item->descricao ?></p>
+                    <p><strong>Preço:</strong> R$<?= number_format($item->preco, 2, ",",".") ?></p>
+                    <p><strong>Plataforma:</strong> <?= $item->plataforma ?></p>
+                    <p>
+                        <?php if ($item->quantidade > 0): ?>
+                            <strong>Status:</strong> Disponível
+                        <?php else: ?>
+                            <strong>Status:</strong> Indisponível
+                        <?php endif; ?>
+                    </p>
+                </div>
             <?php endforeach ?>
+        </div>
 
             
             <?php if(count($model->rows) == 0): ?>
@@ -39,34 +55,30 @@
         </table>
 
         <script>
-            const inputFiltro = document.getElementById('formPesquisa');
+            const formPesquisa = document.getElementById('formPesquisa');
+            const produtos = document.querySelectorAll('.produto');
 
-            inputFiltro.addEventListener('submit', function(event) {
-
+            formPesquisa.addEventListener('submit', function(event) {
                 event.preventDefault();
-
                 const filtro = document.getElementById('inputFiltro').value.toUpperCase();
-                const tabela = document.querySelector('table');
-                const linhas = tabela.getElementsByTagName('tr');
 
-                for (let i = 1; i < linhas.length; i++) {
-                    const celulas = linhas[i].getElementsByTagName('td');
-                    
+                produtos.forEach(produto => {
+                    const camposProduto = produto.querySelectorAll('p');
                     let encontrouFiltro = false;
-                    for (let j = 0; j < celulas.length; j++) {
-                        const textoCelula = celulas[j].textContent || celulas[j].innerText;
-                        if (textoCelula.toUpperCase().indexOf(filtro) > -1) {
+
+                    camposProduto.forEach(campo => {
+                        const textoCampo = campo.textContent || campo.innerText;
+                        if (textoCampo.toUpperCase().indexOf(filtro) > -1) {
                             encontrouFiltro = true;
-                            break;
                         }
-                    }
+                    });
 
                     if (encontrouFiltro) {
-                        linhas[i].style.display = '';
+                        produto.style.display = '';
                     } else {
-                        linhas[i].style.display = 'none';
+                        produto.style.display = 'none';
                     }
-                }
+                });
             });
         </script>
     </body>
