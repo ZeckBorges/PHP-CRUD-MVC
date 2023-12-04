@@ -27,12 +27,12 @@
         </tr>
 
         <?php foreach($model->rows as $item): ?>
-        <tr>
+        <tr <?php if ($item->quantidade == 0): ?> style="background-color:red" <?php endif?>>
             <td><?= $item->nome ?></td>
             <td><?= $item->descricao ?></td>
             <td>R$<?= number_format($item->preco, 2, ",",".") ?></td>
             <td><?= $item->plataforma ?></td>
-            <td> <?= $item->quantidade ?></a> </td>
+            <td> <?= $item->quantidade ?></a></td>
             <td>
                 <a href="/produto/edit?id=<?= $item->id_produto ?>">editar</a>
             </td>

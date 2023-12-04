@@ -14,7 +14,7 @@
 
         <div class="produtos">
             <?php foreach($model->rows as $item): ?>
-                <div class="produto">
+                <div class="produto" <?php if ($item->quantidade == 0): ?> style="background-color:red" <?php endif?>>
                     <p><strong>Produto:</strong> <?= $item->nome ?></p>
                     <p><strong>Descrição:</strong> <?= $item->descricao ?></p>
                     <p><strong>Preço:</strong> R$<?= number_format($item->preco, 2, ",",".") ?></p>
