@@ -38,3 +38,10 @@ VALUES
 
 CREATE VIEW produto_view AS SELECT * FROM `produto`;
 
+
+CREATE VIEW quantidade_produtos_view AS SELECT
+    SUM(CASE WHEN plataforma LIKE "%nintendo%" THEN quantidade ELSE 0 END) AS nintendo,
+    SUM(CASE WHEN plataforma LIKE "%playstation%" THEN quantidade ELSE 0 END) AS sony,
+    SUM(CASE WHEN plataforma LIKE "%pc%" THEN quantidade ELSE 0 END) AS pc,
+    SUM(CASE WHEN plataforma LIKE "%xbox%" THEN quantidade ELSE 0 END) AS xbox
+FROM produto_view;

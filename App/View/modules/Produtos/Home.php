@@ -26,8 +26,11 @@
                             <strong>Status:</strong> Indisponível
                         <?php endif; ?>
                     </p>
+                    <p hidden> <?= $item->tipo?></p>
+                    <p hidden> <?= $item->categoria?></p>
                 </div>
             <?php endforeach ?>
+
         </div>
 
             

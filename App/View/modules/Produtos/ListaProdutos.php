@@ -36,6 +36,8 @@
             <td>
                 <a href="/produto/edit?id=<?= $item->id_produto ?>">editar</a>
             </td>
+            <td hidden><?= $item->tipo?></td>
+            <td hidden><?= $item->categoria?></td>
         </tr>
         <?php endforeach ?>
 
