@@ -2,7 +2,7 @@
 <html>
     <head>
     <link rel="stylesheet" href="../../../Style/home.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <h1>Site</h1>
@@ -12,35 +12,35 @@
             <button type="submit">Pesquisar</button>
         </form>
 
-        <div class="produtos">
-            <?php foreach($model->rows as $item): ?>
-                <div class="produto" <?php if ($item->quantidade == 0): ?> style="background-color:red" <?php endif?>>
-                    <p><strong>Produto:</strong> <?= $item->nome ?></p>
-                    <p><strong>Descrição:</strong> <?= $item->descricao ?></p>
-                    <p><strong>Preço:</strong> R$<?= number_format($item->preco, 2, ",",".") ?></p>
-                    <p><strong>Plataforma:</strong> <?= $item->plataforma ?></p>
-                    <p>
-                        <?php if ($item->quantidade > 0): ?>
-                            <strong>Status:</strong> Disponível
-                        <?php else: ?>
-                            <strong>Status:</strong> Indisponível
-                        <?php endif; ?>
-                    </p>
-                    <p hidden> <?= $item->tipo?></p>
-                    <p hidden> <?= $item->categoria?></p>
-                </div>
-            <?php endforeach ?>
+        <div class="table">
+            <div class="produtos">
+                <?php foreach($model->rows as $item): ?>
+                    <div class="produto" <?php if ($item->quantidade == 0): ?> style="background-color:red" <?php endif?>>
+                        <p><strong>Produto:</strong> <?= $item->nome ?></p>
+                        <p><strong>Descrição:</strong> <?= $item->descricao ?></p>
+                        <p><strong>Preço:</strong> R$<?= number_format($item->preco, 2, ",",".") ?></p>
+                        <p><strong>Plataforma:</strong> <?= $item->plataforma ?></p>
+                        <p>
+                            <?php if ($item->quantidade > 0): ?>
+                                <strong>Status:</strong> Disponível
+                            <?php else: ?>
+                                <strong>Status:</strong> Indisponível
+                            <?php endif; ?>
+                        </p>
+                        <p hidden> <?= $item->tipo?></p>
+                        <p hidden> <?= $item->categoria?></p>
+                    </div>
+                <?php endforeach ?>
 
+            </div>
+
+                
+                <?php if(count($model->rows) == 0): ?>
+                    <tr>
+                        <td colspan="5">Nenhum registro encontrado.</td>
+                    </tr>
+                <?php endif ?>
         </div>
-
-            
-            <?php if(count($model->rows) == 0): ?>
-                <tr>
-                    <td colspan="5">Nenhum registro encontrado.</td>
-                </tr>
-            <?php endif ?>
-
-        </table>
 
         <script>
             const formPesquisa = document.getElementById('formPesquisa');

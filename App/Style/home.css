@@ -4,12 +4,6 @@ body {
     padding: 0px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
 th, td {
     padding: 10px;
     text-align: left;
@@ -51,4 +45,18 @@ td[colspan="5"] {
 .produtos {
     display: flex;
     flex-wrap: wrap
+}
+
+.table{
+    padding: 20px;
+}
+
+#formPesquisa{
+    padding-left: 70%;
+}
+
+@media (max-width: 768px) {
+    #formPesquisa{
+        padding-left: 5%;
+    }
 }

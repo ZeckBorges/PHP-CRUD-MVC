@@ -39,3 +39,13 @@ a:hover {
 td[colspan="5"] {
     text-align: center;
 }
+
+#formPesquisa{
+    padding-left: 70%;
+}
+
+@media (max-width: 768px) {
+    #formPesquisa{
+        padding-left: 5%;
+    }
+}

@@ -62,6 +62,7 @@
             background-color: #555;
         }
     </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     
@@ -78,6 +79,26 @@
 
 <?php
 
+include 'Router/Router.php';
+include 'Controller/ProdutoController.php';
+
+$router = new Router();
+
+// Definindo rotas
+$router->add('/home', [ProdutoController::class, 'index']);
+$router->add('/produtos', [ProdutoController::class, 'list']);
+$router->add('/produto/cadastro', [ProdutoController::class, 'cad']);
+$router->add('/produto/edit/{id}', [ProdutoController::class, 'edit']);
+$router->add('/produto/form/save', [ProdutoController::class, 'save']);
+$router->add('/produto/delete/{id}', [ProdutoController::class, 'delete']);
+
+// Captura a URL atual
+$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+// Dispara o roteamento
+$router->dispatch($url);
+
+/*
 include 'Controller/ProdutoController.php';
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -113,7 +134,7 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         default:
             echo "Erro 404";
             break;
-    }
+    }*/
 ?>
 
 

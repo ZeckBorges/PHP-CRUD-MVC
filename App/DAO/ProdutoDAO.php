@@ -7,10 +7,10 @@ class ProdutoDAO
 
     public function __construct()
     {
-        $dsn = "mysql:host=localhost;dbname=estoque";
+        $dsn = "pgsql:host=localhost;port=5432;dbname=postgres";
 
         try {
-            $this->conexao = new PDO($dsn, 'root', '2468');
+            $this->conexao = new PDO($dsn, 'postgres', '2468');
             $this->conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // Conexão estabelecida com sucesso
         } catch (PDOException $e) {
@@ -64,7 +64,7 @@ class ProdutoDAO
 
     public function select()
     {
-        $sql = "SELECT * FROM produto_view";
+        $sql = "SELECT * FROM produto";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
@@ -76,7 +76,7 @@ class ProdutoDAO
     {
         include_once 'Model/ProdutoModel.php';
 
-        $sql = "SELECT * FROM produto_view WHERE id_produto = ?";
+        $sql = "SELECT * FROM produto WHERE id_produto = ?";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $id);
@@ -93,5 +93,14 @@ class ProdutoDAO
         $stmt->bindValue(1, $id);
         $stmt->execute();
     }
+
+    /*public function delete(int $id)
+    {
+        $sql = "DELETE FROM funcionarios WHERE id = ?";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+    }*/
 
 }

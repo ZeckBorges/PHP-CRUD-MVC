@@ -34,7 +34,7 @@
             <td><?= $item->plataforma ?></td>
             <td> <?= $item->quantidade ?></a></td>
             <td>
-                <a href="/produto/edit?id=<?= $item->id_produto ?>">editar</a>
+                <a href="/produto/edit/<?= $item->id_produto ?>">editar</a>
             </td>
             <td hidden><?= $item->tipo?></td>
             <td hidden><?= $item->categoria?></td>

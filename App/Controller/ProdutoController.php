@@ -35,13 +35,13 @@ class ProdutoController
         include 'View/modules/Produtos/Produto.php'; // Include da View. Note que a variável $model está disponível na View.
     }
 
-    public static function edit()
+    public static function edit($id)
     {
         include 'Model/ProdutoModel.php'; // inclusão do arquivo model.
         $model = new ProdutoModel();
 
-        if(isset($_GET['id'])) // Verificando se existe uma variável $_GET
-            $model = $model->getById( (int) $_GET['id']);
+        $model = $model->getById( (int) $id);
+            
 
         include 'View/modules/Produtos/Editar.php'; // Include da View. Note que a variável $model está disponível na View.
     }
